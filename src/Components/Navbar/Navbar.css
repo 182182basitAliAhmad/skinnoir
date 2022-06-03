@@ -1,0 +1,72 @@
+.bd-navbar {
+    padding: .75rem 0;
+}
+
+.bd-navbar .navbar-toggler {
+    padding: 0;
+    border: 0
+}
+
+.bd-navbar .navbar-nav .nav-link {
+    padding-right: .25rem;
+    padding-left: .25rem;
+    color: rgba(255, 255, 255, 0.85)
+}
+
+.bd-navbar .navbar-nav .nav-link:hover,
+.bd-navbar .navbar-nav .nav-link:focus {
+    color: #fff
+}
+
+.bd-navbar .navbar-nav .nav-link.active {
+    font-weight: 600;
+    color: #fff
+}
+
+.bd-navbar .navbar-nav-svg {
+    width: 1rem;
+    height: 1rem
+}
+
+.btn-bd-signin {
+    font-weight: 600;
+    color: #343a40;
+    background-color: #ffe484;
+    border-color: #ffe484;
+}
+
+.btn-bd-signin:hover,
+.btn-bd-signin:active {
+    color: #2a2730;
+    background-color: #ffe277;
+    border-color: #ffe277;
+}
+
+.btn-bd-signin:focus {
+    box-shadow: 0 0 0 3px rgba(255, 228, 132, 0.25)
+}
+
+
+.btn-bd-signup {
+    font-weight: 600;
+    color: #dededf;
+    border-color: #dededf;
+}
+
+.btn-bd-signup:hover,
+.btn-bd-signup:active {
+    color: #2a2730;
+    background-color: #dededf;
+    border-color: #dededf;
+}
+
+.btn-bd-signup:focus {
+    box-shadow: 0 0 0 3px rgba(255, 228, 132, 0.25)
+}
+
+.avatar-dropdown {
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    transform: translate(0px, 34px);
+}
