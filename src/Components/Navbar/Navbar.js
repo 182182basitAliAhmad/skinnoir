@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = (props) => {
-    const { currentPage, currentPageSetter, isLoggedIn, isLoggedInSetter } = props;
+    const { currentPage, currentPageSetter } = props;
+    const location = useLocation()
+    const auth = localStorage.getItem('authToken')
     return (
         <header className="navbar navbar-expand-md navbar-dark bd-navbar bg-dark">
             <nav className="container-xxl flex-wrap flex-md-nowrap">
@@ -21,20 +23,20 @@ const Navbar = (props) => {
                 <div className="collapse navbar-collapse" id="bdNavbar">
                     <ul className="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (currentPage === "home" ? " active" : "")} onClick={() => currentPageSetter("home")} to="/" >Home</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/" ? " active" : "")} onClick={() => currentPageSetter("home")} to="/" >Home</Link>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (currentPage === "browse" ? " active" : "")} onClick={() => currentPageSetter("browse")} to="/browse">Browse</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/browse" ? " active" : "")} onClick={() => currentPageSetter("browse")} to="/browse">Browse</Link>
 
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (currentPage === "community" ? " active" : "")} onClick={() => currentPageSetter("community")} to="/community" >Community</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/community" ? " active" : "")} onClick={() => currentPageSetter("community")} to="/community" >Community</Link>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (currentPage === "faqs" ? " active" : "")} onClick={() => currentPageSetter("faqs")} to="/faqs">FAQs</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/faqs" ? " active" : "")} onClick={() => currentPageSetter("faqs")} to="/faqs">FAQs</Link>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (currentPage == "about" ? " active" : "")} onClick={() => currentPageSetter("about")} to="/about" >About</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/about" ? " active" : "")} onClick={() => currentPageSetter("about")} to="/about" >About</Link>
                         </li>
                     </ul>
 
@@ -66,7 +68,7 @@ const Navbar = (props) => {
 
                     </ul>
 
-                    {isLoggedIn && <div className="dropdown text-end">
+                    {auth && <div className="dropdown text-end">
                         <a href="#" className="d-block link-light text-decoration-none dropdown-toggle show" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"/>
                         </a>
@@ -78,9 +80,9 @@ const Navbar = (props) => {
                         </ul>
                     </div>}
 
-                    {isLoggedIn && <Link className="btn btn-bd-signin d-lg-inline-block my-2 my-md-0 ms-md-3" to="/" onClick={() => isLoggedInSetter(false)}>Sign Out</Link>}
-                    {!isLoggedIn && <Link className="btn btn-bd-signin d-lg-inline-block my-2 my-md-0 ms-md-3" to="/signin">Sign In</Link>}
-                    {!isLoggedIn && <Link className="btn btn-bd-signup d-lg-inline-block my-2 my-md-0 ms-3" to="/signup">Sign Up</Link>}
+                    {auth && <Link className="btn btn-bd-signin d-lg-inline-block my-2 my-md-0 ms-md-3" to="/" onClick={() => {localStorage.removeItem('authToken'); auth = null}}>Sign Out</Link>}
+                    {!auth &&<Link className="btn btn-bd-signin d-lg-inline-block my-2 my-md-0 ms-md-3" to="/signin">Sign In</Link>}
+                    {!auth && <Link className="btn btn-bd-signup d-lg-inline-block my-2 my-md-0 ms-3" to="/signup">Sign Up</Link>}
                 </div>
             </nav>
 
