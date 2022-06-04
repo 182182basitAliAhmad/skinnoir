@@ -10,7 +10,8 @@ const SignUp = () => {
         name: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        termsAndConditionFlag: false
     })
 
     const handleUser = e => {
@@ -25,7 +26,12 @@ const SignUp = () => {
         e.preventDefault()
 
 
-        const {name, email, password, confirmPassword} = userInfo;
+        const {name, email, password, confirmPassword, termsAndConditionFlag} = userInfo;
+
+        if (!termsAndConditionFlag) {
+            alert("Please accept our terms and conditions")
+            return
+        }
 
         if (password != confirmPassword) {
             alert('Password mismatch')
@@ -64,27 +70,27 @@ const SignUp = () => {
 
                                 <div className="form-floating mb-3">
                                     <input type="email" className="form-control bg-dark text-light" value={userInfo.name} onChange={handleUser} id="name" name="name" placeholder="Enter your name" />
-                                    <label for="name">Name</label>
+                                    <label htmlFor="name">Name</label>
                                 </div>
 
                                 <div className="form-floating mb-3">
                                     <input type="email" className="form-control bg-dark text-light" value={userInfo.email} onChange={handleUser} id="email" name="email" placeholder="Email address" />
-                                    <label for="email">Email address</label>
+                                    <label htmlFor="email">Email address</label>
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input type="password" className="form-control bg-dark text-light" value={userInfo.password} onChange={handleUser} id="password" name="password" placeholder="Password" />
-                                    <label for="password">Password</label>
+                                    <label htmlFor="password">Password</label>
                                 </div>
 
                                 <div className="form-floating">
                                     <input type="password" className="form-control bg-dark text-light" value={userInfo.confirmPassword} onChange={handleUser} id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" />
-                                    <label for="confirmPassword">Confirm Password</label>
+                                    <label htmlFor="confirmPassword">Confirm Password</label>
                                 </div>
 
                                 <div className="small mt-3 mb-5 pb-lg-2">
-                                    <div class="form-check form-switch text-align-left">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-                                            <label class="form-check-label " for="flexSwitchCheckDefault">I accept Terms and Conditions</label>
+                                    <div className="form-check form-switch text-align-left">
+                                        <input className="form-check-input" type="checkbox" role="switch" id="tcSwitch" name="tcSwitch"  onClick={() => setUserInfo({...userInfo, termsAndConditionFlag: !userInfo.termsAndConditionFlag})} />
+                                            <label className="form-check-label " htmlFor="tcSwitch">I accept Terms and Conditions</label>
                                     </div>
                                 </div>
 

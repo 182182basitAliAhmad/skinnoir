@@ -15,7 +15,7 @@ const Navbar = (props) => {
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="bi" fill="currentColor" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        <path fillRule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                     </svg>
 
                 </button>
@@ -23,20 +23,20 @@ const Navbar = (props) => {
                 <div className="collapse navbar-collapse" id="bdNavbar">
                     <ul className="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0">
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (location.pathname === "/" ? " active" : "")} onClick={() => currentPageSetter("home")} to="/" >Home</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/" ? " active" : "")} to="/" >Home</Link>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (location.pathname === "/browse" ? " active" : "")} onClick={() => currentPageSetter("browse")} to="/browse">Browse</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/browse" ? " active" : "")} to="/browse">Browse</Link>
 
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (location.pathname === "/community" ? " active" : "")} onClick={() => currentPageSetter("community")} to="/community" >Community</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/community" ? " active" : "")} to="/community" >Community</Link>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (location.pathname === "/faqs" ? " active" : "")} onClick={() => currentPageSetter("faqs")} to="/faqs">FAQs</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/faqs" ? " active" : "")} to="/faqs">FAQs</Link>
                         </li>
                         <li className="nav-item col-6 col-md-auto">
-                            <Link className={"nav-link p-2" + (location.pathname === "/about" ? " active" : "")} onClick={() => currentPageSetter("about")} to="/about" >About</Link>
+                            <Link className={"nav-link p-2" + (location.pathname === "/about" ? " active" : "")} to="/about" >About</Link>
                         </li>
                     </ul>
 
@@ -73,10 +73,10 @@ const Navbar = (props) => {
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"/>
                         </a>
                         <ul className="dropdown-menu text-small show avatar-dropdown" aria-labelledby="dropdownUser1"  data-popper-placement="bottom-start">
-                            <li><a className="dropdown-item" href="#">Profile</a></li>
-                            <li><a className="dropdown-item" href="#">Inventory</a></li>
-                            <li><a className="dropdown-item" href="#">Wallet</a></li>
-                            <li><a className="dropdown-item" href="#">Account Preferences</a></li>                            
+                            <li><Link className="dropdown-item" to="editprofile">Profile</Link></li>
+                            <li><Link className="dropdown-item" to="#">Inventory</Link></li>
+                            <li><Link className="dropdown-item" to="#">Wallet</Link></li>
+                            <li><Link className="dropdown-item" to="#">Account Preferences</Link></li>                            
                         </ul>
                     </div>}
 

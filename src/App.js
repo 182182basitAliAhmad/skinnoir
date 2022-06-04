@@ -11,11 +11,12 @@ import {
   Route,
 } from "react-router-dom";
 import { useState } from 'react';
-import Footer from './Components/Navbar/Footer/Footer';
+import Footer from './Components/Footer/Footer';
 import Carousal from './Components/Carousal/Carousal';
 import CategoryHeader from './Components/CategoryHeader/CategoryHeader';
 import BrowsingMain from './Components/BrowsingMain/BrowsingMain';
 import FAQs from './Components/FAQs/FAQs';
+import EditProfile from './Components/EditProfile/EditProfile';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -50,6 +51,7 @@ function App() {
 
           <Route path="/signin" element={<SignIn isLoggedIn={isLoggedIn} isLoggedInSetter={setIsLoggedIn} />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/editprofile" element={<EditProfile />}/>
 
         </Routes>
 
